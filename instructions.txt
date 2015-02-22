@@ -1,0 +1,73 @@
+Download the master zip file.
+Unpack it to a directory of your choosing. 
+All of the files needed for this script to run is contained within this directory. 
+
+Open a command prompt and change over to the directory where you unpacked the zip.
+
+To see command line options:
+
+redisfb2k --help
+
+Usage: redisfb2k.exe [OPTIONS]
+
+OPTIONS:
+  -n, --name=fqdn         fqdn or IP of the redis db server (default:
+                          localhost)
+  -p, --port=#####        port of the redis db server (default: 6379)
+  -d, --db=##             redis db # to use (default: 15)
+  -e, --exp=ExportFile    Specify exported statistics filname or
+                          fullpath including filename. (default:
+                          fb2kpbstats_exp.xml)
+  -i, --imp=NewImportFile Specify output filname or fullpath including
+                          filename.  Filename will be appended with
+                          timestamp and xml file extension (default:
+                          fb2kpbstats_imp)
+  -l, --log               Log songs added and song playback statistics
+                          modified into fb2kstats_changes.log
+  -c, --confirm           Display set options and confirm prior to
+                          executing
+  -h, --help              Display command line options
+------------
+Example run switches
+
+--
+Run by connecting to server my.redis.example and use db 5 and output the file to c:temp with fbout as the file name.
+
+>redisfb2k -n my.redis.example -d 5 -o c:\temp\fbout
+
+--
+Run by connecting to redis server with 192.168.1.92 ip address, log any adds/changes, and confirm before running.
+
+>redisfb2k --name=192.168.1.92 -l -c
+
+This program will run with the following options:
+Redis Host: 192.168.1.92
+Redis Port: 6379
+Redis Database Number: 15
+Use Export File: fb2kpbstats_exp.xml
+Create new Import File: fb2kpbstats_imp2015.02.22.11.35.xml
+Log File: fb2kstats_changes.log
+Do you want this program to execute with these parameters (y/n)?
+
+
+------------
+Default run setting
+
+redisfb2k will run with the following options if no options are given:
+Redis Host: localhost
+Redis Port: 6379
+Redis Database Number: 15
+Input File: fb2kpbstats_exp.xml
+Output File: fb2kpbstats_outYYYY.MM.DD.HH.MM.xml
+-------------
+
+redisfb2k requires an input file.  This is the exported playback statistics xml file from foobar2000. The default input file is named "fb2kpbstats_exp.xml" and is placed in the directory containg redisfb2k.exe.
+-------------
+
+redisfb2k will output a file that is used to import current playback statistics into foobar2000.  By default, this file is named "fb2kpbstats_impYYYY.MM.DD.HH.MM.xml" and is created in the same directory containg redisfb2k.exe.
+
+-------------
+
+
+
+ 
