@@ -24,10 +24,11 @@ There is a Windows port of the Redis server on GitHub (https://github.com/MSOpen
 
 ### Limitations ###
 ----------
+All foobar2000 installations must have the same exact mapping value.  You can check this by examining the first line of the exported playback statistics xml file.  If the mapping values differ.  Do not use this script. 
+
 All foobar2000 installations using this script must export the exact same ID# in the exported xml file for a particular song. 
 
 Songs that have been deleted/removed from the foobar library will be orphaned on the redis db.  This is because there is no information on how the hash keys for a song are created by foobar2000.  The only information available explains that the hash uses a combination of artist, album, disc number, track number, and track title information. 
-
 
 ### Dependencies ###
 ----------
