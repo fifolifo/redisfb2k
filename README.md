@@ -32,7 +32,7 @@ Songs that have been deleted/removed from the foobar library will be orphaned on
 
 ### Dependencies ###
 ----------
-- [Lua 5.2. Lua 5.1 should also work, but not tested] (http://www.lua.org/)
+- [Lua 5.2] (http://www.lua.org/)
 - LuaSocket
 - [redis lua] (https://github.com/nrk/redis-lua)
 - [cliargs] (https://github.com/amireh/lua_cliargs)
