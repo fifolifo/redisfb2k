@@ -1,9 +1,13 @@
-Download the master zip file.
-Unpack it to a directory of your choosing. 
-All of the files needed for this script to run is contained within this directory. 
+1. Download the master zip file.
+2. Unpack it to a directory of your choosing. 
+3. All of the files needed for this script to run is contained within this directory. 
+4. Export playback statistics from foobar2000.  Create this file into the same directory as above.  Name the file fb2kpbstats_exp.
+5. Keep a backup of this export file. 
+5. Open a command prompt and change over to the directory where you unpacked the zip.
+6. Run redisfb2k.exe (see below for command line options)
+7. Import the newly created playback statistics import file into foobar2000. 
 
-Open a command prompt and change over to the directory where you unpacked the zip.
-
+----------
 To see command line options:
 
 redisfb2k --help
