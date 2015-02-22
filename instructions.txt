@@ -71,7 +71,46 @@ redisfb2k requires an input file.  This is the exported playback statistics xml 
 redisfb2k will output a file that is used to import current playback statistics into foobar2000.  By default, this file is named "fb2kpbstats_impYYYY.MM.DD.HH.MM.xml" and is created in the same directory containg redisfb2k.exe.
 
 -------------
+Basic Redis commands to check playback statistics data:
+
+This example shows accesing Redis using the cli and selecting database 15.
+# redis-cli
+127.0.0.1:6379> select 15
+OK
+127.0.0.1:6379[15]> 
 
 
+This example shows how to get the total number of songs in a list called listsongs:id
+127.0.0.1:6379[15]> llen listsongs:id
+(integer) 14246
+127.0.0.1:6379[15]> 
 
- 
+
+This example shows how to list all song ids stored on Redis.  This number should match the number from the llen command above.  
+The "keys" command should be used with extreme care in any environment other than personal/test use of Redis. 
+127.0.0.1:6379[15]> keys song:*
+.
+.
+.
+14244) "song:5381820ac313cd88"
+14245) "song:519bad128fb92a66"
+14246) "song:8a053dc51311a6a2"
+(0.83s)
+127.0.0.1:6379[15]>
+
+
+This shows how to retrive all of the values stored for a particular song.
+127.0.0.1:6379[15]> hgetall song:ae03de37ec16402f
+ 1) "id"
+ 2) "ae03de37ec16402f"
+ 3) "count"
+ 4) "11"
+ 5) "fplayed"
+ 6) "129742022176984807"
+ 7) "lplayed"
+ 8) "130682024933090492"
+ 9) "added"
+10) "129733004759808553"
+11) "rating"
+12) "234"
+127.0.0.1:6379[15]> 
