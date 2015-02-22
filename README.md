@@ -20,11 +20,14 @@ This script does the following:
 
 This script is used in the following environment:
 Three Windows 7 computers running foobar 1.1.x running playback statistics component 3.0.x and a Redis server version 2.8.19 running on Linux. 
-There is a Windows port of the Redis server on GitHub (https://github.com/MSOpenTech/redis) and in theory, this script should work without issues with this Windows port of Redis.  I have ran this script against this ported version a few times as a test and it appeared to have worked fine. 
+There is a Windows port of the Redis server on GitHub (https://github.com/MSOpenTech/redis) and in theory, this script should work without issues with this Windows port of Redis.  It's a very small download and the redis server exe itself can be run without installing.  Although if this will be a permanent install.  It should be installed as a service.  I have run this script against this ported version (2.8.17) a few times as a test and it appeared to have worked fine. 
 
 ### Limitations ###
 ----------
 All foobar2000 installations using this script must export the exact same ID# in the exported xml file for a particular song. 
+
+Songs that have been deleted/removed from the foobar library will be orphaned on the redis db.  This is because there is no information on how the hash keys for a song are created by foobar2000.  The only information available explains that the hash uses a combination of artist, album, disc number, track number, and track title information. 
+
 
 ### Dependencies ###
 ----------
