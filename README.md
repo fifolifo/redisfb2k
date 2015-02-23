@@ -28,7 +28,7 @@ All foobar2000 installations must have the same exact mapping value.  You can ch
 
 All foobar2000 installations using this script must export the exact same ID# in the exported xml file for a particular song. 
 
-Play counts will be lost when sync are not performed regularly due to the asynchronous operation of this process. 
+Play counts will be lost when syncs are not performed regularly due to the asynchronous nature of this process. 
 Example:
 - PC A and PC B used this script to update the play count statistic for song C to 5 on the Redis db and locally. 
 - Since then, PC A has played song C two more time. PLay count is now at 7.
