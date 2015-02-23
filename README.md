@@ -31,7 +31,7 @@ All foobar2000 installations using this script must export the exact same ID# in
 Play counts will be lost when syncs are not performed regularly due to the asynchronous nature of this process. 
 Example:
 - PC A and PC B used this script to update the play count statistic for song C to 5 on the Redis db and locally. 
-- Since then, PC A has played song C two more time. PLay count is now at 7.
+- Since then, PC A has played song C two more time. Play count is now at 7.
 - Since then, PC B has played song C one more time. Play count is now at 6. 
 - When PC A and PC B use this script to update the playcount on the Redis db.
 - The play count stored on the Redis db for song C will be 7. 
