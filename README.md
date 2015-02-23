@@ -12,7 +12,7 @@ This script does the following:
       - Added
       - Rating
 - Create a new song key in Redis and populate with above data values if an existing key isn't found. If a song key      already exists.  Compare the data values for the song from the export file to the data values stored on Redis db.
-   If the data value is more accurate than update the value on the Redis db with the value from the xml file.
+   If the data value is more current than update the value on the Redis db with the value from the xml file.
 - Once the redis db has been fully updated.  Use the updated data to create a new synced playback statistics xml file    that can be imported into foobar2000. 
 
 ----------
@@ -28,7 +28,16 @@ All foobar2000 installations must have the same exact mapping value.  You can ch
 
 All foobar2000 installations using this script must export the exact same ID# in the exported xml file for a particular song. 
 
-Songs that have been deleted/removed from the foobar library will be orphaned on the redis db.  This is because there is no information on how the hash keys for a song are created by foobar2000.  The only information available explains that the hash uses a combination of artist, album, disc number, track number, and track title information. 
+Play counts will be lost when sync are not performed regularly due to the asynchronous operation of this process. 
+Example:
+PC A and PC B used this script to update the play count statistic for song C to 5 on the Redis db and locally. 
+Since then, PC A has played song C two more time. PLay count is now at 7.
+Since then, PC B has played song C one more time. Play count is now at 6. 
+When PC A and PC B use this script to update the playcount on the Redis db.
+The play count stored on the Redis db for song C will be 7. 
+In this example, one play count from PC B has been lost.
+
+Songs that have been deleted/removed from the foobar library will be orphaned on the redis db.  This is because there is no information on how the hash keys for a song are created by foobar2000.  Without this information, it is not possible to identify the proper record on the db for removal. 
 
 ### Dependencies ###
 ----------
