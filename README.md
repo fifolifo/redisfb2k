@@ -30,12 +30,12 @@ All foobar2000 installations using this script must export the exact same ID# in
 
 Play counts will be lost when sync are not performed regularly due to the asynchronous operation of this process. 
 Example:
-PC A and PC B used this script to update the play count statistic for song C to 5 on the Redis db and locally. 
-Since then, PC A has played song C two more time. PLay count is now at 7.
-Since then, PC B has played song C one more time. Play count is now at 6. 
-When PC A and PC B use this script to update the playcount on the Redis db.
-The play count stored on the Redis db for song C will be 7. 
-In this example, one play count from PC B has been lost.
+- PC A and PC B used this script to update the play count statistic for song C to 5 on the Redis db and locally. 
+- Since then, PC A has played song C two more time. PLay count is now at 7.
+- Since then, PC B has played song C one more time. Play count is now at 6. 
+- When PC A and PC B use this script to update the playcount on the Redis db.
+- The play count stored on the Redis db for song C will be 7. 
+- One play count from PC B has been lost.
 
 Songs that have been deleted/removed from the foobar library will be orphaned on the redis db.  This is because there is no information on how the hash keys for a song are created by foobar2000.  Without this information, it is not possible to identify the proper record on the db for removal. 
 
